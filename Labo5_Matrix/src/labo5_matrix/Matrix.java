@@ -42,10 +42,6 @@ public class Matrix {
       }
    }
    
-   Matrix(){
-      
-   }
-   
    public String toString(){
       String print = new String();
       for(boolean[] line : matrix){
@@ -55,5 +51,50 @@ public class Matrix {
          print += "\n";
       }
       return print;
+   }
+   
+   public Matrix or(Matrix b){
+      if(matrix.length != b.matrix.length){
+         throw new RuntimeException("Compare two matrix with not the same size!");
+      }
+      
+      boolean[] matrixOr = new boolean[matrix.length * matrix.length];
+      
+      for(int i = 0; i < matrix.length; ++i){
+         for(int j = 0; j < matrix.length; ++j){
+            matrixOr[i + matrix.length * j] = matrix[i][j] | b.matrix[i][j];
+         }
+      }
+      return new Matrix(matrix.length, matrixOr);
+   }
+   
+   public Matrix and(Matrix b){
+      if(matrix.length != b.matrix.length){
+         throw new RuntimeException("Compare two matrix with not the same size!");
+      }
+      
+      boolean[] matrixAnd = new boolean[matrix.length * matrix.length];
+      
+      for(int i = 0; i < matrix.length; ++i){
+         for(int j = 0; j < matrix.length; ++j){
+            matrixAnd[i + matrix.length * j] = matrix[i][j] & b.matrix[i][j];
+         }
+      }
+      return new Matrix(matrix.length, matrixAnd);
+   }
+   
+   public Matrix xor(Matrix b){
+      if(matrix.length != b.matrix.length){
+         throw new RuntimeException("Compare two matrix with not the same size!");
+      }
+      
+      boolean[] matrixXOr = new boolean[matrix.length * matrix.length];
+      
+      for(int i = 0; i < matrix.length; ++i){
+         for(int j = 0; j < matrix.length; ++j){
+            matrixXOr[i + matrix.length * j] = matrix[i][j] ^ b.matrix[i][j];
+         }
+      }
+      return new Matrix(matrix.length, matrixXOr);
    }
 }
