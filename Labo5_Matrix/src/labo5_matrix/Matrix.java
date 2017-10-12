@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package labo5_matrix;
+
+import static java.sql.DriverManager.println;
 
 /**
  *
@@ -42,10 +43,6 @@ public class Matrix {
       }
    }
    
-   Matrix(){
-      
-   }
-   
    public String toString(){
       String print = new String();
       for(boolean[] line : matrix){
@@ -55,5 +52,9 @@ public class Matrix {
          print += "\n";
       }
       return print;
+   }
+   
+   public void print(){
+       println(this.toString());
    }
 }
