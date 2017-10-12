@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package labo5_matrix;
+
+import static java.sql.DriverManager.println;
 
 /**
  *
@@ -96,5 +97,9 @@ public class Matrix {
          }
       }
       return new Matrix(matrix.length, matrixXOr);
+   }
+   
+   public void print(){
+       println(this.toString());
    }
 }
