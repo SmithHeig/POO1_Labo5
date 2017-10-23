@@ -38,13 +38,13 @@ public class Matrix {
       // Initialisation de la matrice avec la valeur par défaut 0
       matrix = new boolean[n][n];
       // Remplissage de la matrice
-      for(boolean[] line : matrix){
-         for(boolean cell : line){
-            cell = (boolean)(Math.random() >= 0.5);
-            System.out.println(cell + " ");
+      for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+            matrix[i][j] = (boolean)(Math.random() >= 0.5);
          }
-         System.out.println();
       }
+      //System.out.println("TEST");
+      //System.out.println(this.toString());
    }
    
    public String toString(){
@@ -52,6 +52,7 @@ public class Matrix {
       for(boolean[] line : matrix){
          for(boolean cell : line){
             print += (cell ? "1" : "0") + " ";
+            //System.out.println(cell);
          }
          print += "\n";
       }
