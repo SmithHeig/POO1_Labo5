@@ -6,8 +6,6 @@
 
 package labo5_matrix;
 
-import static java.sql.DriverManager.println;
-
 /**
  *
  * @author James
@@ -16,6 +14,7 @@ public class Matrix {
    private boolean[][] matrix;
    
    Matrix(int n, boolean ... args){
+    System.out.println("First Constructor used!");
       // Check du bon nombre d'argument
       if(args.length != n*n){
          throw new RuntimeException("Wrong nomber of arguments");
@@ -35,13 +34,16 @@ public class Matrix {
    }
    
    Matrix(int n){
+      System.out.println("Second Constructor used!");
       // Initialisation de la matrice avec la valeur par défaut 0
       matrix = new boolean[n][n];
       // Remplissage de la matrice
       for(boolean[] line : matrix){
          for(boolean cell : line){
-            cell = Math.random() >= 0.5;
+            cell = (boolean)(Math.random() >= 0.5);
+            System.out.println(cell + " ");
          }
+         System.out.println();
       }
    }
    
@@ -49,7 +51,7 @@ public class Matrix {
       String print = new String();
       for(boolean[] line : matrix){
          for(boolean cell : line){
-            print += cell + " ";
+            print += (cell ? "1" : "0") + " ";
          }
          print += "\n";
       }
@@ -119,6 +121,6 @@ public class Matrix {
    }
    */
    public void print(){
-       println(this.toString());
+       System.out.println(this);
    }
 }

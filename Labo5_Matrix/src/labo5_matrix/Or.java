@@ -11,7 +11,8 @@ package labo5_matrix;
  */
 public class Or extends Operator{
     
+    @Override
     public boolean apply(boolean left, boolean right){
-        return left || right;
+        return left | right;
     }
 }
