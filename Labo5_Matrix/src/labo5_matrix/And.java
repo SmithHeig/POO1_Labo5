@@ -7,8 +7,11 @@ package labo5_matrix;
 
 /**
  *
- * @author James
+ * @author dname
  */
-public class MatrixOperator {
-   
+public class And extends Operator{
+    
+    public boolean apply(boolean left, boolean right){
+        return left && right;
+    }
 }

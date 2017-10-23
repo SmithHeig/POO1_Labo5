@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+package labo5_matrix;
+
 import static java.sql.DriverManager.println;
 
 /**
@@ -54,6 +56,23 @@ public class Matrix {
       return print;
    }
    
+   public Matrix applyOperator(Matrix b, Operator o){
+      if(matrix.length != b.matrix.length){
+         throw new RuntimeException("Attempt to work with two matrix of different size!");
+      }
+      
+      boolean[] matrixOr = new boolean[matrix.length * matrix.length];
+      
+      for(int i = 0; i < matrix.length; ++i){
+         for(int j = 0; j < matrix.length; ++j){
+            matrixOr[i + matrix.length * j] = o.apply(matrix[i][j], b.matrix[i][j]);
+         }
+      }
+      return new Matrix(matrix.length, matrixOr);
+   }
+   
+   /* --{ VERSION NON FACTORISEE }--
+   
    public Matrix or(Matrix b){
       if(matrix.length != b.matrix.length){
          throw new RuntimeException("Compare two matrix with not the same size!");
@@ -98,7 +117,7 @@ public class Matrix {
       }
       return new Matrix(matrix.length, matrixXOr);
    }
-   
+   */
    public void print(){
        println(this.toString());
    }
