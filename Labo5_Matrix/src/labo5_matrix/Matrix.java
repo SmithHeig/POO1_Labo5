@@ -13,11 +13,9 @@ package labo5_matrix;
 public class Matrix {
    private boolean[][] matrix;
    /**
-    * @brief Constructeur de la matrice
+    * @brief Constructeur de la matrice avec données
     * @param n = taille de la matrice (n x n)
     * @param args = argument devant être des booléens pour remplir la matrice.
-    * 
-    * @remark dans le cas ou le paramètre args est vide, la matrice sera remplie aléatoirement
     */
    Matrix(int n, boolean ... args){
     System.out.println("First Constructor used!");
@@ -39,6 +37,11 @@ public class Matrix {
       }
    }
    
+   /**
+    * @brief Constructeur de la matrice sans données
+    * @param n taille de la matrice (n x n)
+    * @remark les valeurs de la matrice sont généré aléatoirement
+    */
    Matrix(int n){
       System.out.println("Second Constructor used!");
       // Initialisation de la matrice avec la valeur par défaut 0
@@ -76,20 +79,20 @@ public class Matrix {
     * @param o opérateur de l'opération à effectuer
     * @return la matrice résultante à l'opération
     */
-   public Matrix applyOperator(Matrix b, Operator o){
-      if(matrix.length != b.matrix.length){
+   public Matrix applyOperator(Matrix matrixB, Operator operator){
+      if(matrix.length != matrixB.matrix.length){
          throw new RuntimeException("Attempt to work with two matrix of different size!");
       }
       
       // tableau à une dimension car constructeur ne permet pas un tableau à 2D
-      boolean[] matrixOr = new boolean[matrix.length * matrix.length];
+      boolean[] matrixOp = new boolean[matrix.length * matrix.length];
       
       for(int i = 0; i < matrix.length; ++i){
          for(int j = 0; j < matrix.length; ++j){
-            matrixOr[i + matrix.length * j] = o.apply(matrix[i][j], b.matrix[i][j]);
+            matrixOp[i + matrix.length * j] = operator.apply(matrix[i][j], matrixB.matrix[i][j]);
          }
       }
-      return new Matrix(matrix.length, matrixOr);
+      return new Matrix(matrix.length, matrixOp);
    }
    
    /**
