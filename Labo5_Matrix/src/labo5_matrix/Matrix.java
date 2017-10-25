@@ -17,9 +17,10 @@ public class Matrix {
     * @param n = taille de la matrice (n x n)
     * @param args = argument devant être des booléens pour remplir la matrice.
     */
-   Matrix(int n, boolean ... args){
-      // Check du bon nombre d'arguments
-      if(args.length != n*n){
+   Matrix(boolean ... args){
+      // Check du bon nombre d'arguments ( on en veut au minimum 1 (matrice 1 par 1) et si plus un nombre qui soit le carré d'un nombr entier).
+      int n =(int)(Math.sqrt(args.length));
+      if(args.length < 1 || Math.sqrt(args.length) != n){
          throw new RuntimeException("You shall not pass... The wrong nomber of arguments!");
       }
       
@@ -80,14 +81,14 @@ public class Matrix {
       }
       
       // tableau à une dimension car constructeur ne permet pas un tableau à 2D
-      boolean[] matrixOp = new boolean[matrix.length * matrix.length];
+      boolean[] tabBool = new boolean[matrix.length * matrix.length];
       
       for(int i = 0; i < matrix.length; ++i){
          for(int j = 0; j < matrix.length; ++j){
-            matrixOp[i + matrix.length * j] = operator.apply(matrix[i][j], matrixB.matrix[i][j]);
+            tabBool[i + matrix.length * j] = operator.apply(matrix[i][j], matrixB.matrix[i][j]);
          }
       }
-      return new Matrix(matrix.length, matrixOp);
+      return new Matrix(tabBool);
    }
    
    /**
