@@ -14,13 +14,13 @@ public class Labo5_Matrix {
     */
    public static void main(String[] args) {
        
-        System.out.println("Première matrice A :");
+        System.out.println("Premiere matrice A :");
         int n = 4;
         Matrix first = new Matrix(n);
         first.print();
 
         //une seconde matrice pour tester les opérateurs;
-        System.out.println("Deuxième matrice B :");
+        System.out.println("Deuxieme matrice B :");
         Matrix second = new Matrix(n);
         second.print();
 
