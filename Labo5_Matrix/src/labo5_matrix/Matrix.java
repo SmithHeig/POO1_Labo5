@@ -1,21 +1,26 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * @brief class rerpésentant des matrices
+ * @date 25.10.2017
+ * @authors Adrien Alleman et James Smith
  */
 
 package labo5_matrix;
 
 /**
- *
- * @author James
+ * @brief Class representant des matrices contenant des booleens.
  */
 public class Matrix {
    private boolean[][] matrix;
-   
+   /**
+    * @brief Constructeur de la matrice
+    * @param n = taille de la matrice (n x n)
+    * @param args = argument devant être des booléens pour remplir la matrice.
+    * 
+    * @remark dans le cas ou le paramètre args est vide, la matrice sera remplie aléatoirement
+    */
    Matrix(int n, boolean ... args){
     System.out.println("First Constructor used!");
-      // Check du bon nombre d'argument
+      // Check du bon nombre d'arguments
       if(args.length != n*n){
          throw new RuntimeException("Wrong nomber of arguments");
       }
@@ -47,6 +52,11 @@ public class Matrix {
       //System.out.println(this.toString());
    }
    
+   /**
+    * @brief retourne la matrice sous forme de String
+    * @return matrice sous forme de string
+    * @remark les booleens sont noté en format numérique
+    */
    public String toString(){
       String print = new String();
       for(boolean[] line : matrix){
@@ -59,6 +69,12 @@ public class Matrix {
       return print;
    }
    
+   /**
+    * @brief Permet d'appliquer des opérateurs sur les matrices
+    * @param b seconde matrice avec les quelles réalisé les opérations
+    * @param o opérateur de l'opération à effectuer
+    * @return la matrice résultante à l'opération
+    */
    public Matrix applyOperator(Matrix b, Operator o){
       if(matrix.length != b.matrix.length){
          throw new RuntimeException("Attempt to work with two matrix of different size!");
@@ -72,6 +88,13 @@ public class Matrix {
          }
       }
       return new Matrix(matrix.length, matrixOr);
+   }
+   
+   /**
+    * @brief Affichage de la matrice
+    */
+   public void print(){
+       System.out.println(this);
    }
    
    /* --{ VERSION NON FACTORISEE }--
@@ -121,7 +144,4 @@ public class Matrix {
       return new Matrix(matrix.length, matrixXOr);
    }
    */
-   public void print(){
-       System.out.println(this);
-   }
 }
