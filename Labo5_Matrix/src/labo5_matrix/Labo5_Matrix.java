@@ -14,14 +14,20 @@ public class Labo5_Matrix {
     */
    public static void main(String[] args) {
        
+        //une première matrice pour tester le constructeur aléatoire;
         System.out.println("Premiere matrice A :");
         int n = 4;
         Matrix first = new Matrix(n);
         first.print();
 
-        //une seconde matrice pour tester les opérateurs;
+        //une seconde matrice pour tester le constructeur avec tableau de paramètre;
         System.out.println("Deuxieme matrice B :");
-        Matrix second = new Matrix(n);
+        Matrix second = new Matrix(n,
+                true, false, true, false,
+                false ,false ,true, true,
+                true, true, false, true,
+                false, false, false, true
+        );
         second.print();
 
         // test de l'opérateur or
@@ -35,7 +41,8 @@ public class Labo5_Matrix {
         And and = new And();
         Matrix resultAnd = first.applyOperator(second, and);
         resultAnd.print();
-
+        
+        // test de l'opérateur xor
         System.out.println("Matrice A xor B :");
         Xor xor = new Xor();
         Matrix resultXor = first.applyOperator(second, xor);

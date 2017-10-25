@@ -75,8 +75,8 @@ public class Matrix {
    
    /**
     * @brief Permet d'appliquer des opérateurs sur les matrices
-    * @param b seconde matrice avec les quelles réalisé les opérations
-    * @param o opérateur de l'opération à effectuer
+    * @param matrixB seconde matrice avec les quelles réalisé les opérations
+    * @param operator opérateur de l'opération à effectuer
     * @return la matrice résultante à l'opération
     */
    public Matrix applyOperator(Matrix matrixB, Operator operator){
