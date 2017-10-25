@@ -30,11 +30,11 @@ public class Matrix {
       matrix = new boolean[n][n];
       // Remplissage de la matrice
       for(boolean b: args){
-         matrix[i][j] = b;
-         if(++i >= n){
-            ++j;
-            i = 0;
-         }
+        matrix[i][j] = b;
+        if(++j >= n){
+          ++i;
+          j = 0;
+        }
       }
    }
    

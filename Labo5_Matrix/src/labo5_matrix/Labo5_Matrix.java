@@ -22,7 +22,11 @@ public class Labo5_Matrix {
 
         //une seconde matrice pour tester le constructeur avec tableau de paramètre;
         System.out.println("Deuxieme matrice B :");
-        Matrix second = new Matrix(true, false, true, false, false ,false ,true, false, true, true, false, false, false, false, true, true);
+        Matrix second = new Matrix(
+                true, false, true, false, 
+                false ,false ,true, false, 
+                true, true, false, false, 
+                false, false, true, true);
         second.print();
 
         // test de l'opérateur or
