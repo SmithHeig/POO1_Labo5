@@ -17,9 +17,11 @@ public class Matrix {
     * @param n = taille de la matrice (n x n)
     * @param args = argument devant être des booléens pour remplir la matrice.
     */
-   Matrix(int n, boolean ... args){
-      // Check du bon nombre d'arguments
-      if(args.length != n*n){
+   Matrix(boolean ... args){
+      System.out.print("Premier constructeur utilisé avec " + args.length + " arguments.\n");
+      int n = (int)Math.sqrt(args.length);
+      // Check du bon nombre d'arguments (on veut une matrice carée)
+      if((double)n != Math.sqrt(args.length)){
          throw new RuntimeException("You shall not pass... The wrong nomber of arguments!");
       }
       
@@ -42,6 +44,7 @@ public class Matrix {
     * @remark les valeurs de la matrice sont généré aléatoirement
     */
    Matrix(int n){
+      System.out.print("deuxième constructeur utilisé pour une matrice " + n + "x" + n + "\n");
       // Initialisation de la matrice avec la valeur par défaut 0
       matrix = new boolean[n][n];
       // Remplissage de la matrice
@@ -80,14 +83,15 @@ public class Matrix {
       }
       
       // tableau à une dimension car constructeur ne permet pas un tableau à 2D
-      boolean[] matrixOp = new boolean[matrix.length * matrix.length];
+      boolean[] tabBoolean = new boolean[matrix.length * matrix.length];
       
       for(int i = 0; i < matrix.length; ++i){
          for(int j = 0; j < matrix.length; ++j){
-            matrixOp[i + matrix.length * j] = operator.apply(matrix[i][j], matrixB.matrix[i][j]);
+            tabBoolean[i + matrix.length * j] = operator.apply(matrix[i][j], matrixB.matrix[i][j]);
          }
       }
-      return new Matrix(matrix.length, matrixOp);
+      
+      return new Matrix(tabBoolean);
    }
    
    /**
