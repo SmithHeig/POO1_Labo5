@@ -2,6 +2,7 @@
  * @brief class rerpésentant des matrices
  * @date 25.10.2017
  * @authors Adrien Alleman et James Smith
+ * @file Matrix.java
  */
 
 package labo5_matrix;
@@ -80,6 +81,7 @@ public class Matrix {
          throw new RuntimeException("Attempt to work with two matrix of different size!");
       }
       
+      // tableau à une dimension car constructeur ne permet pas un tableau à 2D
       boolean[] matrixOr = new boolean[matrix.length * matrix.length];
       
       for(int i = 0; i < matrix.length; ++i){
